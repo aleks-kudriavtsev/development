@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Chat</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js" integrity="sha384-Ig1xeJfm6D/E6nhij0vRQx2lHy3uJx/9ov0KQ62TtBfILgxIkpZ0ZA7AmhU0Vn8q" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js" integrity="sha384-fYzGxJXuLcSoqm5myVX5rv5Wffnpko4rsbC9rlIL8ZcODhcvqT/67QAmStOhd5jX" crossorigin="anonymous"></script>
+    <script src="config.js" defer></script>
+    <script src="static/main.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <h2>Online Users</h2>
+        <ul id="user-list"></ul>
+      </aside>
+      <main class="chat">
+        <header>
+          <h1>Simple Chat</h1>
+          <div id="status"></div>
+        </header>
+        <section id="messages" class="messages" aria-live="polite"></section>
+        <form id="message-form" novalidate>
+          <input
+            id="message-input"
+            type="text"
+            placeholder="Type your message"
+            autocomplete="off"
+            required
+            disabled
+          />
+          <button type="submit" disabled>Send</button>
+        </form>
+      </main>
+    </div>
+
+    <div id="username-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="username-modal-title">
+      <div class="modal-content">
+        <h2 id="username-modal-title">Enter your username</h2>
+        <form id="username-form" novalidate>
+          <input id="username-input" type="text" placeholder="Username" required />
+          <button type="submit">Join</button>
+        </form>
+        <p id="username-error" class="error"></p>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
